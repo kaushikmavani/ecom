@@ -1,0 +1,971 @@
+{
+	"info": {
+		"_postman_id": "8cf70ce9-be39-4645-9763-1c1af1040996",
+		"name": "ecom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "admin@yopmail.com",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "admin@yopmail.com",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/auth/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Brand",
+					"item": [
+						{
+							"name": "Get Brand List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/brands",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"brands"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Brand By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/brands/6456bf949cde8486b52948ec",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"brands",
+										"6456bf949cde8486b52948ec"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Apple",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/brands/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"brands",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Apple",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/brands/update/6456bf949cde8486b52948ec",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"brands",
+										"update",
+										"6456bf949cde8486b52948ec"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/brands/delete/6456c05950de3407d4ed82fb",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"brands",
+										"delete",
+										"6456c05950de3407d4ed82fb"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Size",
+					"item": [
+						{
+							"name": "Get Size List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/sizes",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sizes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Size By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/sizes/6456c6e207a8d09273994d74",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sizes",
+										"6456c6e207a8d09273994d74"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "XL",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/sizes/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sizes",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "S",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/sizes/update/6456c6e207a8d09273994d74",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sizes",
+										"update",
+										"6456c6e207a8d09273994d74"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/sizes/delete/6456c77007a8d09273994d96",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sizes",
+										"delete",
+										"6456c77007a8d09273994d96"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Color",
+					"item": [
+						{
+							"name": "Get Color List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/colors",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"colors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Color By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/colors/6457cab617b5b684db0f6312",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"colors",
+										"6457cab617b5b684db0f6312"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "White",
+											"type": "default"
+										},
+										{
+											"key": "code",
+											"value": "ffffff",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/colors/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"colors",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Red",
+											"type": "default"
+										},
+										{
+											"key": "code",
+											"value": "ff0000",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/colors/update/6457cab617b5b684db0f6312",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"colors",
+										"update",
+										"6457cab617b5b684db0f6312"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/colors/delete/6457cbabe8028e98bf0e32be",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"colors",
+										"delete",
+										"6457cbabe8028e98bf0e32be"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "Get Category List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Category By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/categories/6458537c3d5a8a6068072f5d",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"categories",
+										"6458537c3d5a8a6068072f5d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Cat3",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/categories/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"categories",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Cat3",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/categories/update/6458541a8f6a2095f45d2d84",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"categories",
+										"update",
+										"6458541a8f6a2095f45d2d84"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/categories/delete/6458541a8f6a2095f45d2d84",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"categories",
+										"delete",
+										"6458541a8f6a2095f45d2d84"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sub Category",
+					"item": [
+						{
+							"name": "Get Sub Category List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/sub-categories",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sub-categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Sub Category By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/sub-categories/6458537c3d5a8a6068072f5d",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sub-categories",
+										"6458537c3d5a8a6068072f5d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "SubCat1",
+											"type": "default"
+										},
+										{
+											"key": "category",
+											"value": "645852f53d5a8a6068072f391",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/sub-categories/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sub-categories",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "Cat3",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/sub-categories/update/6458541a8f6a2095f45d2d84",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sub-categories",
+										"update",
+										"6458541a8f6a2095f45d2d84"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/sub-categories/delete/6458541a8f6a2095f45d2d84",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"sub-categories",
+										"delete",
+										"6458541a8f6a2095f45d2d84"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": []
+		}
+	]
+}
