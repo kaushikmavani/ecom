@@ -121,7 +121,7 @@ class ColorController {
                 });
             }
 
-            const color = await Color.findOne({ _id: req.params.id });
+            const color = await Color.findById(req.params.id);
             if(!color) {
                 return res.status(400).json({
                     status: 0,
@@ -162,7 +162,7 @@ class ColorController {
         const session = await mongoose.startSession();
         await session.startTransaction();
         try {
-            const color = await Color.findOne({ _id: req.params.id });
+            const color = await Color.findById(req.params.id);
             if(!color) {
                 return res.status(400).json({
                     status: 0,

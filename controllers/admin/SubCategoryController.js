@@ -5,13 +5,13 @@ const Category = require('../../models/Category');
 
 class SubCategoryController {
 
-    static async getCategories(req, res, next) {
+    static async getSubCategories(req, res, next) {
         try {
-            const categories = await SubCategory.find();
+            const subCategories = await SubCategory.find().populate('category');
 
             res.status(200).json({
                 status: 1,
-                data: categories
+                data: subCategories
             });
         } catch (error) {
             res.status(500).json({
@@ -21,9 +21,9 @@ class SubCategoryController {
         }
     }
 
-    static async getCategory(req, res, next) {
+    static async getSubCategory(req, res, next) {
         try {
-            const subCategory = await SubCategory.findById(req.params.id);
+            const subCategory = await SubCategory.findById(req.params.id).populate('category');
             if(!subCategory) {
                 return res.status(400).json({
                     status: 0,
@@ -68,26 +68,25 @@ class SubCategoryController {
                 });
             }
 
-            const category = await Category.exists({ _id: req.body.category });
-            console.log(category, req.body.category)
-            // if(!category) {
-            //     return res.status(400).json({
-            //         status: 0,
-            //         message: "Category not found, Please enter valid category."
-            //     });
-            // }
+            const category = await Category.findById(req.body.category);
+            if(!category) {
+                return res.status(400).json({
+                    status: 0,
+                    message: "Category not found, Please enter valid category."
+                });
+            }
 
-            // const subCategory = await SubCategory.exists({ name: req.body.name, category: req.body.category });
-            // if(subCategory) {
-            //     return res.status().json({
-            //         status: 0,
-            //         message: "Sub category is already exist with this name, Please enter unique sub category name with category."
-            //     });
-            // }
+            const subCategory = await SubCategory.findOne({ name: req.body.name, category: req.body.category });
+            if(subCategory) {
+                return res.status(400).json({
+                    status: 0,
+                    message: "Sub category is already exist with this name, Please enter unique sub category name with category."
+                });
+            }
 
-            // await SubCategory.create({ name: req.body.name, category: req.body.category });
+            await SubCategory.create({ name: req.body.name, category: req.body.category });
 
-            // await session.commitTransaction();
+            await session.commitTransaction();
 
             res.status(201).json({
                 status: 1,
@@ -95,7 +94,6 @@ class SubCategoryController {
             });
             
         } catch (error) {
-            console.log(error)
             await session.abortTransaction();
             res.status(500).json({
                 status: 0,
@@ -112,7 +110,8 @@ class SubCategoryController {
         await session.startTransaction();
         try {
             const schema = Joi.object({
-                name: Joi.string().max(30).required()
+                name: Joi.string().max(30).required(),
+                category: Joi.required()
             });
 
             const { error, value } = await schema.validate({
@@ -131,7 +130,7 @@ class SubCategoryController {
                 });
             }
 
-            const subCategory = await SubCategory.findOne({ _id: req.params.id });
+            const subCategory = await SubCategory.findById(req.params.id);
             if(!subCategory) {
                 return res.status(400).json({
                     status: 0,
@@ -180,7 +179,7 @@ class SubCategoryController {
         const session = await mongoose.startSession();
         await session.startTransaction();
         try {
-            const subCategory = await SubCategory.findOne({ _id: req.params.id });
+            const subCategory = await SubCategory.findById(req.params.id);
             if(!subCategory) {
                 return res.status(400).json({
                     status: 0,

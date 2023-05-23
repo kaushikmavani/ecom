@@ -83,7 +83,6 @@ class SizeController {
             });
             
         } catch (error) {
-            console.log(error)
             await session.abortTransaction();
             res.status(500).json({
                 status: 0,
@@ -118,7 +117,7 @@ class SizeController {
                 });
             }
 
-            const size = await Size.findOne({ _id: req.params.id });
+            const size = await Size.findById(req.params.id);
             if(!size) {
                 return res.status(400).json({
                     status: 0,
@@ -159,7 +158,7 @@ class SizeController {
         const session = await mongoose.startSession();
         await session.startTransaction();
         try {
-            const size = await Size.findOne({ _id: req.params.id });
+            const size = await Size.findById(req.params.id);
             if(!size) {
                 return res.status(400).json({
                     status: 0,

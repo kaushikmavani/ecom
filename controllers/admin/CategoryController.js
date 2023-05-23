@@ -117,7 +117,7 @@ class CategoryController {
                 });
             }
 
-            const category = await Category.findOne({ _id: req.params.id });
+            const category = await Category.findById(req.params.id);
             if(!category) {
                 return res.status(400).json({
                     status: 0,
@@ -158,7 +158,7 @@ class CategoryController {
         const session = await mongoose.startSession();
         await session.startTransaction();
         try {
-            const category = await Category.findOne({ _id: req.params.id });
+            const category = await Category.findById(req.params.id);
             if(!category) {
                 return res.status(400).json({
                     status: 0,

@@ -101,7 +101,6 @@ class AuthController {
             });
             
         } catch (error) {
-            console.log(error)
             await session.abortTransaction();
             res.status(500).json({
                 status: 0,

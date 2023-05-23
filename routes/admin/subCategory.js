@@ -8,7 +8,7 @@ const routes = express.Router();
 routes.put('/create', isAuthenticated, isAdmin, SubCategoryController.create);
 routes.patch('/update/:id', isAuthenticated, isAdmin, SubCategoryController.update);
 routes.delete('/delete/:id', isAuthenticated, isAdmin, SubCategoryController.delete);
-routes.get('/:id', isAuthenticated, isAdmin, SubCategoryController.getCategory);
-routes.get('/', isAuthenticated, isAdmin, SubCategoryController.getCategories);
+routes.get('/:id', isAuthenticated, isAdmin, SubCategoryController.getSubCategory);
+routes.get('/', isAuthenticated, isAdmin, SubCategoryController.getSubCategories);
 
 module.exports = routes;

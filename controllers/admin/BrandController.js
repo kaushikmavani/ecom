@@ -117,7 +117,7 @@ class BrandController {
                 });
             }
 
-            const brand = await Brand.findOne({ _id: req.params.id });
+            const brand = await Brand.findById(req.params.id);
             if(!brand) {
                 return res.status(400).json({
                     status: 0,
@@ -158,7 +158,7 @@ class BrandController {
         const session = await mongoose.startSession();
         await session.startTransaction();
         try {
-            const brand = await Brand.findOne({ _id: req.params.id });
+            const brand = await Brand.findById(req.params.id);
             if(!brand) {
                 return res.status(400).json({
                     status: 0,
