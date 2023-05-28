@@ -111,6 +111,28 @@ class AuthController {
             await session.endSession();
         }
     }
+
+    static async profile(req, res, next) {
+        try {
+            const admin = await Admin.findById(req.user._id);
+            if(!admin) {
+                return res.status(400).json({
+                    status: 0,
+                    message: "Something went wrong, please try again later."
+                });
+            }
+
+            res.status(200).json({
+                status: 1,
+                data: admin
+            });
+        } catch (error) {
+            res.status(500).json({
+                status: 0,
+                message: "Something went wrong, Please try again later."
+            });
+        }
+    }
 }
 
 module.exports = AuthController
