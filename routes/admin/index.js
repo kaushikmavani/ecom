@@ -6,6 +6,7 @@ const sizeRoutes = require('./size');
 const categoryRoutes = require('./category');
 const subCategoryRoutes = require('./subCategory');
 const productRoutes = require('./product');
+const userRoutes = require('./user');
 
 const routes = express.Router();
 
@@ -16,5 +17,6 @@ routes.use('/sizes', sizeRoutes);
 routes.use('/categories', categoryRoutes);
 routes.use('/sub-categories', subCategoryRoutes);
 routes.use('/products', productRoutes);
+routes.use('/users', userRoutes);
 
 module.exports = routes;
