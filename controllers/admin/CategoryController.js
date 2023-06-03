@@ -6,7 +6,11 @@ class CategoryController {
 
     static async getCategories(req, res, next) {
         try {
-            const categories = await Category.find();
+            const page = req.query.page ?? 1;
+            const limit = req.query.limit ?? 10;
+            const offset = (page-1) * limit;
+
+            const categories = await Category.find().sort('-_id').limit(limit).skip(offset);
 
             res.status(200).json({
                 status: 1,

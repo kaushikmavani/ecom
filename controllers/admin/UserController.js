@@ -8,7 +8,11 @@ class UserController {
 
     static async getUsers(req, res, next) {
         try {
-            const users = await User.find();
+            const page = req.query.page ?? 1;
+            const limit = req.query.limit ?? 10;
+            const offset = (page-1) * limit;
+
+            const users = await User.find().sort('-_id').limit(limit).skip(offset);
             
             res.status(200).json({
                 status: 1,

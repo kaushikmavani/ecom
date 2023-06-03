@@ -6,7 +6,11 @@ class ColorController {
 
     static async getColors(req, res, next) {
         try {
-            const colors = await Color.find();
+            const page = req.query.page ?? 1;
+            const limit = req.query.limit ?? 10;
+            const offset = (page-1) * limit;
+
+            const colors = await Color.find().sort('-_id').limit(limit).skip(offset);
 
             res.status(200).json({
                 status: 1,

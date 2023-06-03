@@ -6,7 +6,11 @@ class SizeController {
 
     static async getSizes(req, res, next) {
         try {
-            const sizes = await Size.find();
+            const page = req.query.page ?? 1;
+            const limit = req.query.limit ?? 10;
+            const offset = (page-1) * limit;
+
+            const sizes = await Size.find().sort('-_id').limit(limit).skip(offset);
 
             res.status(200).json({
                 status: 1,
