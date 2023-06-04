@@ -73,7 +73,7 @@ class ColorController {
 
             const color = await Color.findOne({ name: req.body.name, code: req.body.code });
             if(color) {
-                return res.status().json({
+                return res.status(400).json({
                     status: 0,
                     message: "Color is already exist with this name, Please enter unique color name."
                 });

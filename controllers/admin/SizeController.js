@@ -71,7 +71,7 @@ class SizeController {
 
             const size = await Size.findOne({ name: req.body.name });
             if(size) {
-                return res.status().json({
+                return res.status(400).json({
                     status: 0,
                     message: "Size is already exist with this name, Please enter unique size name."
                 });

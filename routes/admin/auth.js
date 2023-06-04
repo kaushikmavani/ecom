@@ -7,6 +7,6 @@ const routes = express.Router();
 
 routes.post('/login', AuthController.login);
 routes.post('/logout', isAuthenticated, isAdmin, AuthController.logout);
-routes.post('/profile', isAuthenticated, isAdmin, AuthController.profile)
+routes.get('/profile', isAuthenticated, isAdmin, AuthController.profile)
 
 module.exports = routes;

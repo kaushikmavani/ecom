@@ -11,6 +11,10 @@ class ProductController {
 
     static async getProducts(req, res, next) {
         try {
+            const page = req.query.page ?? 1;
+            const limit = req.query.limit ?? 10;
+            const offset = (page-1) * limit;
+            
             const products = await Product.find().populate(['brand', 'color', 'size', 'category', 'subCategory']).sort('-_id').limit(limit).skip(offset);
 
             res.status(200).json({

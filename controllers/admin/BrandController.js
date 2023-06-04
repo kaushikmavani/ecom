@@ -71,7 +71,7 @@ class BrandController {
 
             const brand = await Brand.findOne({ name: req.body.name });
             if(brand) {
-                return res.status().json({
+                return res.status(400).json({
                     status: 0,
                     message: "Brand is already exist with this name, Please enter unique brand name."
                 });

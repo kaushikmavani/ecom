@@ -83,7 +83,7 @@ class UserController {
 
             const user = await User.findOne({ email: req.body.email });
             if(user) {
-                return res.status().json({
+                return res.status(400).json({
                     status: 0,
                     message: "User already exists with this email, Please enter valid unique email address."
                 });
@@ -150,9 +150,17 @@ class UserController {
                 });
             }
 
-            const user = await User.findOne({ email: req.body.email });
-            if(user) {
-                return res.status().json({
+            const user = await User.findById(req.params.id);
+            if(!user) {
+                return res.status(400).json({
+                    status: 0,
+                    message: "User not found, Please enter valid user id in url." 
+                });
+            }
+
+            const checkUser = await User.findOne({ _id: { $ne: req.params.id }, email: req.body.email });
+            if(checkUser) {
+                return res.status(400).json({
                     status: 0,
                     message: "User already exists with this email, Please enter valid unique email address."
                 });
@@ -161,7 +169,7 @@ class UserController {
             const salt = bcrypt.genSaltSync(config.auth.bcryptSaltLength);
             const hash = bcrypt.hashSync(req.body.password, salt);
 
-            await User.create({
+            await user.updateOne({
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
@@ -171,9 +179,9 @@ class UserController {
 
             await session.commitTransaction();
 
-            res.status(201).json({
+            res.status(200).json({
                 status: 1,
-                message: "User created successfully!"
+                message: "User updated successfully!"
             });
         } catch (error) {
             await session.abortTransaction();
@@ -208,7 +216,7 @@ class UserController {
             });
         } catch (error) {
             await session.abortTransaction();
-            res.status().json({
+            res.status(400).json({
                 status: 0,
                 message: "Something went wrong, Please try again later."
             });

@@ -71,7 +71,7 @@ class CategoryController {
 
             const category = await Category.findOne({ name: req.body.name });
             if(category) {
-                return res.status().json({
+                return res.status(400).json({
                     status: 0,
                     message: "Category is already exist with this name, Please enter unique category name."
                 });
