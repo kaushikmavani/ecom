@@ -1,7 +1,7 @@
 
 module.exports = (req, res, next) => {
     try {
-        if(!req.user && req.user.role !== 'Admin') {
+        if(!req.user || req.user.role !== 'Admin') {
             return res.status(403).json({
                 status: 0,
                 message: "You don't have access to this request."

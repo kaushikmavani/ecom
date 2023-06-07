@@ -48,7 +48,7 @@ class AuthController {
                 });
             }
 
-            const token = await jwt.sign({ _id: admin._id, email: admin.email, role: 'Admin' }, config.auth.jwtSecret, { expiresIn: config.auth.jwtExouresIn });
+            const token = await jwt.sign({ _id: admin._id, email: admin.email, role: 'Admin' }, config.auth.jwtSecret, { expiresIn: config.auth.jwtExpiresIn });
 
             const adminTokens = await Token.find({ auther: admin._id });
             if(adminTokens.length) {
@@ -92,7 +92,15 @@ class AuthController {
         const session = await mongoose.startSession();
         await session.startTransaction();
         try {
-            await Token.create({ token: req.token, auther: req.user._id, autherModel: req.user.role });
+            const admin = await Admin.findOne({ _id: req.user._id });
+            if(!admin) {
+                return res.status(500).json({
+                    status: 0,
+                    message: "Something went wrong, Please try again later."
+                });
+            }
+
+            await Token.create([{ token: req.token, auther: req.user._id, autherModel: req.user.role }], { session });
 
             await session.commitTransaction();
             res.status(200).json({
@@ -114,7 +122,7 @@ class AuthController {
 
     static async profile(req, res, next) {
         try {
-            const admin = await Admin.findById(req.user._id);
+            const admin = await Admin.findById(req.user._id).select('-password');
             if(!admin) {
                 return res.status(400).json({
                     status: 0,

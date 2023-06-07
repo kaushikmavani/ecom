@@ -132,7 +132,7 @@ class ProductController {
                 });
             }
 
-            await Product.create(data);
+            await Product.create([ data ], { session });
 
             await session.commitTransaction();
 
@@ -240,7 +240,7 @@ class ProductController {
                 });
             }
 
-            await product.updateOne(data);
+            await product.updateOne(data, { session });
 
             await session.commitTransaction();
 
@@ -271,7 +271,7 @@ class ProductController {
                 });
             }
 
-            await Product.deleteOne();
+            await Product.deleteOne({ session });
 
             await session.commitTransaction();
 

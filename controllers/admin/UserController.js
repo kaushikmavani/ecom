@@ -12,7 +12,7 @@ class UserController {
             const limit = req.query.limit ?? 10;
             const offset = (page-1) * limit;
 
-            const users = await User.find().sort('-_id').limit(limit).skip(offset);
+            const users = await User.find().select('-password').sort('-_id').limit(limit).skip(offset);
             
             res.status(200).json({
                 status: 1,
@@ -28,7 +28,7 @@ class UserController {
 
     static async getUser(req, res, next) {
         try {
-            const user = await User.findById(req.params.id);
+            const user = await User.findById(req.params.id).select('-password');
             if(!user) {
                 return res.status(400).json({
                     status: 0,
@@ -92,13 +92,13 @@ class UserController {
             const salt = bcrypt.genSaltSync(config.auth.bcryptSaltLength);
             const hash = bcrypt.hashSync(req.body.password, salt);
 
-            await User.create({
+            await User.create([{
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 email: req.body.email,
                 password: hash,
                 mobileNumber: req.body.mobileNumber
-            });
+            }], { session });
 
             await session.commitTransaction();
 
@@ -175,7 +175,7 @@ class UserController {
                 email: req.body.email,
                 password: hash,
                 mobileNumber: req.body.mobileNumber
-            });
+            }, { session });
 
             await session.commitTransaction();
 
@@ -206,7 +206,7 @@ class UserController {
                 });
             }
 
-            await user.deleteOne();
+            await user.deleteOne({ session });
 
             await session.commitTransaction();
 

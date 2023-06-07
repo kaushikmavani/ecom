@@ -77,7 +77,7 @@ class CategoryController {
                 });
             }
 
-            await Category.create({ name: req.body.name });
+            await Category.create([{ name: req.body.name }], { session });
 
             await session.commitTransaction();
 
@@ -137,7 +137,7 @@ class CategoryController {
                 });
             }
 
-            await category.updateOne({ name: req.body.name });
+            await category.updateOne({ name: req.body.name }, { session });
 
             await session.commitTransaction();
 
@@ -170,7 +170,7 @@ class CategoryController {
                 });
             }
 
-            await category.deleteOne();
+            await category.deleteOne({ session });
 
             await session.commitTransaction();
 

@@ -77,7 +77,7 @@ class BrandController {
                 });
             }
 
-            await Brand.create({ name: req.body.name });
+            await Brand.create([{ name: req.body.name }], { session });
 
             await session.commitTransaction();
 
@@ -137,7 +137,7 @@ class BrandController {
                 });
             }
 
-            await brand.updateOne({ name: req.body.name });
+            await brand.updateOne({ name: req.body.name }, { session });
 
             await session.commitTransaction();
 
@@ -170,7 +170,7 @@ class BrandController {
                 });
             }
 
-            await brand.deleteOne();
+            await brand.deleteOne({ session });
 
             await session.commitTransaction();
 

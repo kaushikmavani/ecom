@@ -18,7 +18,11 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    mobileNumber: String
+    mobileNumber: String,
+    emailVerified: {
+        type: Number,
+        default: 0
+    }
 }, {
     timestamps: true,
     versionKey: false

@@ -79,7 +79,7 @@ class ColorController {
                 });
             }
 
-            await Color.create({ name: req.body.name, code: req.body.code });
+            await Color.create([{ name: req.body.name, code: req.body.code }], { session });
 
             await session.commitTransaction();
 
@@ -141,7 +141,7 @@ class ColorController {
                 });
             }
 
-            await color.updateOne({ name: req.body.name, code: req.body.code });
+            await color.updateOne({ name: req.body.name, code: req.body.code }, { session });
 
             await session.commitTransaction();
 
@@ -174,7 +174,7 @@ class ColorController {
                 });
             }
 
-            await color.deleteOne();
+            await color.deleteOne({ session });
 
             await session.commitTransaction();
 

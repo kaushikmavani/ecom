@@ -88,7 +88,7 @@ class SubCategoryController {
                 });
             }
 
-            await SubCategory.create({ name: req.body.name, category: req.body.category });
+            await SubCategory.create([{ name: req.body.name, category: req.body.category }], { session });
 
             await session.commitTransaction();
 
@@ -158,7 +158,7 @@ class SubCategoryController {
                 });
             }
 
-            await subCategory.updateOne({ name: req.body.name, category: req.body.category });
+            await subCategory.updateOne({ name: req.body.name, category: req.body.category }, { session });
 
             await session.commitTransaction();
 
@@ -191,7 +191,7 @@ class SubCategoryController {
                 });
             }
 
-            await subCategory.deleteOne();
+            await subCategory.deleteOne({ session });
 
             await session.commitTransaction();
 

@@ -12,7 +12,7 @@ const config = {
         jwtSecret: process.env.JWT_SECRET,
         jwtConfirmEmailSecret: process.env.JWT_CONFIRM_EMAIL_SECRET,
         jwtResetPasswordSecret: process.env.JWT_REESET_PASSWORD_SECRET,
-        jwtExouresIn: process.env.JWT_EXPIRES_IN || '1d',
+        jwtExpiresIn: process.env.JWT_EXPIRES_IN || '1d',
         bcryptSaltLength: 10
     }
 }

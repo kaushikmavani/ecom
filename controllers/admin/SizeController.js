@@ -77,7 +77,7 @@ class SizeController {
                 });
             }
 
-            await Size.create({ name: req.body.name });
+            await Size.create([{ name: req.body.name }], { session });
 
             await session.commitTransaction();
 
@@ -137,7 +137,7 @@ class SizeController {
                 });
             }
 
-            await size.updateOne({ name: req.body.name });
+            await size.updateOne({ name: req.body.name }, { session });
 
             await session.commitTransaction();
 
@@ -170,7 +170,7 @@ class SizeController {
                 });
             }
 
-            await size.deleteOne();
+            await size.deleteOne({ session });
 
             await session.commitTransaction();
 
