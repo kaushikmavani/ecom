@@ -154,6 +154,10 @@ class ProductController {
 
     static async getWishlists(req, res, next) {
         try {
+            const page = req.query.page ?? 1;
+            const limit = req.query.limit ?? 10;
+            const offset = (page-1) * limit;
+
             const wishlist = await Wishlist.findOne({ user: req.user._id }).populate({ 
                 path: 'products',
                 populate: [
@@ -163,7 +167,7 @@ class ProductController {
                     { path: 'category', model: 'Category' },
                     { path: 'subCategory', model: 'SubCategory' },
                 ]
-            }).select('products');
+            }).select('products').sort('-_id').limit(limit).skip(offset);
             
             res.status(200).json({
                 status: 1,
@@ -283,6 +287,10 @@ class ProductController {
 
     static async getCompareList(req, res, next) {
         try {
+            const page = req.query.page ?? 1;
+            const limit = req.query.limit ?? 10;
+            const offset = (page-1) * limit;
+
             const compare = await Compare.findOne({ user: req.user._id }).populate({ 
                 path: 'products',
                 populate: [
@@ -292,7 +300,7 @@ class ProductController {
                     { path: 'category', model: 'Category' },
                     { path: 'subCategory', model: 'SubCategory' },
                 ]
-            }).select('products');
+            }).select('products').sort('-_id').limit(limit).skip(offset);
             
             res.status(200).json({
                 status: 1,

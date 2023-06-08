@@ -5,11 +5,11 @@ const isUser = require('../middlewares/userGuard');
 
 const routes = express.Router();
 
-routes.put('add-to-cart', isAuthenticated, isUser, CartController.addToCart);
-routes.delete('remove-to-cart/:id', isAuthenticated, isUser, CartController.removeToCart);
-routes.patch('add-qty/:id', isAuthenticated, isUser, CartController.addQty);
-routes.patch('remove-qty/:id', isAuthenticated, isUser, CartController.removeQty);
-routes.get('/:id', isAuthenticated, isUser, CartController.getCartItemById);
-routes.get('/', isAuthenticated, isUser, CartController.getCartList);
+routes.put('/add-to-cart', isAuthenticated, isUser, CartController.addToCart);
+routes.patch('/remove-from-cart', isAuthenticated, isUser, CartController.removeFromCart);
+routes.patch('/add-qty', isAuthenticated, isUser, CartController.addQty);
+routes.patch('/remove-qty', isAuthenticated, isUser, CartController.removeQty);
+routes.delete('/clear', isAuthenticated, isUser, CartController.clearCart);
+routes.get('/', isAuthenticated, isUser, CartController.getCart);
 
 module.exports = routes
