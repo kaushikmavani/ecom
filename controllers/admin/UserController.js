@@ -12,11 +12,16 @@ class UserController {
             const limit = req.query.limit ?? 10;
             const offset = (page-1) * limit;
 
-            const users = await User.find().select('-password').sort('-_id').limit(limit).skip(offset);
+            const users = await User.find().populate('addresses').select('-password').sort('-_id').limit(limit).skip(offset);
+
+            const response = users.map(user => {
+                const userData = user.toObject();
+                return { ...userData, addresses: userData.addresses };
+            });
             
             res.status(200).json({
                 status: 1,
-                data: users
+                data: response
             });
         } catch (error) {
             res.status(500).json({
@@ -28,7 +33,7 @@ class UserController {
 
     static async getUser(req, res, next) {
         try {
-            const user = await User.findById(req.params.id).select('-password');
+            const user = await User.findById(req.params.id).populate('addresses').select('-password');
             if(!user) {
                 return res.status(400).json({
                     status: 0,
@@ -36,9 +41,12 @@ class UserController {
                 });
             }
 
+            const userData = user.toObject();
+            const response = { ...userData, addresses: userData.addresses };
+
             res.status(200).json({
                 status: 1,
-                data: user
+                data: response
             });
         } catch (error) {
             res.status(500).json({

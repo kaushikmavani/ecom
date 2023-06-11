@@ -5,6 +5,6 @@ const isUser = require('../middlewares/userGuard');
 
 const routes = express.Router();
 
-routes.put('make-payment', isAuthenticated, isUser, PaymentController.makePayment);
+routes.put('/make-payment', isAuthenticated, isUser, PaymentController.makePayment);
 
 module.exports = routes
