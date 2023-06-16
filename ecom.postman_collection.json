@@ -53,7 +53,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -88,6 +88,35 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "Profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/auth/profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"auth",
+										"profile"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -102,7 +131,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -110,13 +139,23 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/brands",
+									"raw": "{{url}}/admin/brands?page=1&limit=10",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"brands"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
 									]
 								}
 							},
@@ -130,7 +169,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -159,7 +198,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -171,7 +210,7 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "Apple",
+											"value": "Puma",
 											"type": "default"
 										}
 									]
@@ -198,7 +237,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -210,13 +249,13 @@
 									"urlencoded": [
 										{
 											"key": "name",
-											"value": "Apple",
+											"value": "Pama1",
 											"type": "default"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/admin/brands/update/6456bf949cde8486b52948ec",
+									"raw": "{{url}}/admin/brands/update/6480bec806c01d11be5adbba",
 									"host": [
 										"{{url}}"
 									],
@@ -224,7 +263,7 @@
 										"admin",
 										"brands",
 										"update",
-										"6456bf949cde8486b52948ec"
+										"6480bec806c01d11be5adbba"
 									]
 								}
 							},
@@ -238,7 +277,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -246,7 +285,7 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/brands/delete/6456c05950de3407d4ed82fb",
+									"raw": "{{url}}/admin/brands/delete/6480c075ae02c5f942b283c4",
 									"host": [
 										"{{url}}"
 									],
@@ -254,7 +293,7 @@
 										"admin",
 										"brands",
 										"delete",
-										"6456c05950de3407d4ed82fb"
+										"6480c075ae02c5f942b283c4"
 									]
 								}
 							},
@@ -273,7 +312,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -281,13 +320,23 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/sizes",
+									"raw": "{{url}}/admin/sizes?page=1&limit=10",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"sizes"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
 									]
 								}
 							},
@@ -301,7 +350,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -330,7 +379,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -369,7 +418,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -409,7 +458,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -444,7 +493,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -452,13 +501,23 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/colors",
+									"raw": "{{url}}/admin/colors?page=1&limit=10",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"colors"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
 									]
 								}
 							},
@@ -472,7 +531,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -501,7 +560,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -545,7 +604,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -590,7 +649,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -625,7 +684,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -633,13 +692,23 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/categories",
+									"raw": "{{url}}/admin/categories?page=1&limit=10",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"categories"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
 									]
 								}
 							},
@@ -653,7 +722,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -682,7 +751,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -721,7 +790,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -761,7 +830,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -796,7 +865,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -804,13 +873,23 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{url}}/admin/sub-categories",
+									"raw": "{{url}}/admin/sub-categories?page=1&limit=10",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"admin",
 										"sub-categories"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
 									]
 								}
 							},
@@ -824,7 +903,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -853,7 +932,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -897,7 +976,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -937,7 +1016,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin_token}}",
 											"type": "string"
 										}
 									]
@@ -960,12 +1039,1829 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Get Product List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/products?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/products/648bc4fdeed4d37a162eca27",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products",
+										"648bc4fdeed4d37a162eca27"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "brand",
+											"value": "6456c07950de3407d4ed8307",
+											"type": "text"
+										},
+										{
+											"key": "color",
+											"value": "6457cab617b5b684db0f6312",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "6456c6e207a8d09273994d74",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "645852f53d5a8a6068072f39",
+											"type": "text"
+										},
+										{
+											"key": "subCategory",
+											"value": "646882d49489e8de1f34e549",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "prod3",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "prod3 description",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "qty",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/admin/Pictures/Nature/beautiful-rain-forest.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/products/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "brand",
+											"value": "6456c07950de3407d4ed8307",
+											"type": "text"
+										},
+										{
+											"key": "color",
+											"value": "6457cab617b5b684db0f6312",
+											"type": "text"
+										},
+										{
+											"key": "size",
+											"value": "6456c6e207a8d09273994d74",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "645852f53d5a8a6068072f39",
+											"type": "text"
+										},
+										{
+											"key": "subCategory",
+											"value": "646882d49489e8de1f34e549",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "prod2",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "prod2 description",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "qty",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/admin/Pictures/Nature/flowers-276014__340.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/products/update/647c27c2ec748a33a737bd7a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products",
+										"update",
+										"647c27c2ec748a33a737bd7a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/products/delete/647c27c2ec748a33a737bd7a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"products",
+										"delete",
+										"647c27c2ec748a33a737bd7a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Get User List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/users?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get User By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/users/6480d0e1def9c4dfeee818ed",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"6480d0e1def9c4dfeee818ed"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstname",
+											"value": "testa",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "testa",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "testa@yopmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstname",
+											"value": "testa",
+											"type": "text"
+										},
+										{
+											"key": "lastname",
+											"value": "testa",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "testa@yopmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/users/update/647c2b54c52afaff593390b3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"update",
+										"647c2b54c52afaff593390b3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/users/delete/647c28d5ec748a33a737bdbc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"delete",
+										"647c28d5ec748a33a737bdbc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payment",
+					"item": [
+						{
+							"name": "Get Payment List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/payments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/payments/64856f3d019249e8d97225cc",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"payments",
+										"64856f3d019249e8d97225cc"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "Get Order List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/orders",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/orders/64856f3d019249e8d97225c9",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										"64856f3d019249e8d97225c9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Review",
+					"item": [
+						{
+							"name": "Get Review List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/orders/reviews",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										"reviews"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Review By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/orders/reviews/6485a78d4b56e5db2b40f9d9",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"orders",
+										"reviews",
+										"6485a78d4b56e5db2b40f9d9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
 		{
 			"name": "User",
-			"item": []
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "testb@yopmail.com",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/auth/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "firstname",
+											"value": "testb",
+											"type": "default"
+										},
+										{
+											"key": "lastname",
+											"value": "testb",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "testb@yopmail.com",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/auth/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/auth/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Forgot Password",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Reset Password",
+							"request": {
+								"method": "POST",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Address",
+					"item": [
+						{
+							"name": "Get Address List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/addresses",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Address By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/addresses/6484d2d9975b53c8cc27a1fd",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"addresses",
+										"6484d2d9975b53c8cc27a1fd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "flatNo",
+											"value": "A-99",
+											"type": "default"
+										},
+										{
+											"key": "street1",
+											"value": "street1",
+											"type": "default"
+										},
+										{
+											"key": "street2",
+											"value": "street2",
+											"type": "default"
+										},
+										{
+											"key": "pincode",
+											"value": "123456",
+											"type": "default"
+										},
+										{
+											"key": "city",
+											"value": "Surat",
+											"type": "default"
+										},
+										{
+											"key": "state",
+											"value": "Gujarat",
+											"type": "default"
+										},
+										{
+											"key": "country",
+											"value": "India",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/addresses/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"addresses",
+										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "flatNo",
+											"value": "A-99",
+											"type": "text"
+										},
+										{
+											"key": "street1",
+											"value": "street1",
+											"type": "text"
+										},
+										{
+											"key": "street2",
+											"value": "street2",
+											"type": "text"
+										},
+										{
+											"key": "pincode",
+											"value": "123456",
+											"type": "text"
+										},
+										{
+											"key": "city",
+											"value": "Surat",
+											"type": "text"
+										},
+										{
+											"key": "state",
+											"value": "Gujarat",
+											"type": "text"
+										},
+										{
+											"key": "country",
+											"value": "India",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/addresses/update/6484d2d9975b53c8cc27a1fd",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"addresses",
+										"update",
+										"6484d2d9975b53c8cc27a1fd"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/addresses/delete/6484d2d9975b53c8cc27a1fd",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"addresses",
+										"delete",
+										"6484d2d9975b53c8cc27a1fd"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Product",
+					"item": [
+						{
+							"name": "Get Product List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Product By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/647c27c2ec748a33a737bd7a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"647c27c2ec748a33a737bd7a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Wishlist",
+					"item": [
+						{
+							"name": "Get Wishlist List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/wishlist?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"wishlist"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add to Wishlist",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/wishlist/add/647c27c2ec748a33a737bd7a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"wishlist",
+										"add",
+										"647c27c2ec748a33a737bd7a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove to Wishlist",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/wishlist/remove/647c27c2ec748a33a737bd7a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"wishlist",
+										"remove",
+										"647c27c2ec748a33a737bd7a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Compare",
+					"item": [
+						{
+							"name": "Get Compare List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/compare?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"compare"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add to Compare",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/compare/add/647c27c2ec748a33a737bd7a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"compare",
+										"add",
+										"647c27c2ec748a33a737bd7a"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove to Compare",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/products/compare/remove/647c27c2ec748a33a737bd7a",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"products",
+										"compare",
+										"remove",
+										"647c27c2ec748a33a737bd7a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cart",
+					"item": [
+						{
+							"name": "Get Cart Item List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/cart",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add to Cart",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "product",
+											"value": "647c27c2ec748a33a737bd7a",
+											"type": "text"
+										},
+										{
+											"key": "qty",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/cart/add-to-cart",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart",
+										"add-to-cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove to Cart",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "product",
+											"value": "647c27c2ec748a33a737bd7a",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/cart/remove-from-cart",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart",
+										"remove-from-cart"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Qty",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "product",
+											"value": "6480e3eaa2eef6897c25a7ab",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/cart/add-qty",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart",
+										"add-qty"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove Qty",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "product",
+											"value": "6480e3eaa2eef6897c25a7ab",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/cart/remove-qty",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart",
+										"remove-qty"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clear Cart",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/cart/clear",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"cart",
+										"clear"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payment",
+					"item": [
+						{
+							"name": "Make Payment",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "cart",
+											"value": "6484d5bb9552ccd087528c2b",
+											"type": "default"
+										},
+										{
+											"key": "amount",
+											"value": "10",
+											"type": "default"
+										},
+										{
+											"key": "status",
+											"value": "1",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/payments/make-payment",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"payments",
+										"make-payment"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Get Order List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/orders?page=1&limit=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"orders"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/orders/64856f3d019249e8d97225c9",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"orders",
+										"64856f3d019249e8d97225c9"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Review",
+					"item": [
+						{
+							"name": "Add Review",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{user_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "order",
+											"value": "64856f3d019249e8d97225c9",
+											"type": "default"
+										},
+										{
+											"key": "rating",
+											"value": "5",
+											"type": "default"
+										},
+										{
+											"key": "review",
+											"value": "This is the test review.",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/orders/review/add",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"orders",
+										"review",
+										"add"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/profile",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "firstname",
+									"value": "testb",
+									"type": "text"
+								},
+								{
+									"key": "lastname",
+									"value": "testb",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/admin/Pictures/Nature/bOvf94dPRxWu0u3QsPjF_tree.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users/profile/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{user_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "123789",
+									"type": "default"
+								},
+								{
+									"key": "newPassword",
+									"value": "123456",
+									"type": "default"
+								},
+								{
+									"key": "retypeNewPassword",
+									"value": "123456",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users/change-password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
