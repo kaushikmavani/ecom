@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const fs = require('fs');
 const Joi = require('joi');
 const Product = require('../../models/Product');
 const Brand = require('../../models/Brand');
@@ -132,6 +133,10 @@ class ProductController {
                 });
             }
 
+            if(req.file) {
+                data.image = req.file.filename;
+            }
+
             await Product.create([ data ], { session });
 
             await session.commitTransaction();
@@ -238,6 +243,18 @@ class ProductController {
                     status: 0,
                     message: "Sub category not found, Please enter valid sub category id."
                 });
+            }
+
+            if(req.file) {
+                data.image = req.file.filename;
+
+                if(product.image) {
+                    fs.unlink(product.image, (err) => {
+                        if(err) {
+                            console.log("There is not already exist this user's avatar.")
+                        }
+                    })
+                }
             }
 
             await product.updateOne(data, { session });

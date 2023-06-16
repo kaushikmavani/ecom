@@ -25,14 +25,9 @@ class OrderController {
                 }
             ]).sort('-_id').limit(limit).skip(offset);
 
-            const response = orders.map(order => {
-                const orderData = order.toObject();
-                return { ...orderData, review: orderData.review };
-            });
-
             res.status(200).json({
                 status: 1,
-                data: response
+                data: orders
             });
         } catch (error) {
             return res.status(500).json({
@@ -57,9 +52,12 @@ class OrderController {
                     select: 'rating review'
                 }
             ]);
-
-            const orderData = order.toObject();
-            const response = { ...orderData, review: orderData.review };
+            if(!order) {
+                return res.status(400).json({
+                    status: 0,
+                    message: "Order not found, Please enter valid order id in url." 
+                });
+            }
 
             res.status(200).json({
                 status: 1,

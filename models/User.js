@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const path = require('path');
+const rootDir = require('../utils/rootDir');
 
 const UserSchema = new mongoose.Schema({
     firstname: {
@@ -22,12 +24,24 @@ const UserSchema = new mongoose.Schema({
     emailVerified: {
         type: Number,
         default: 0
+    },
+    avatar: {
+        type: String,
+        get: v => {
+            return v ? path.join(rootDir, 'public', 'images', 'upload', 'avatars', v) : null;
+        }
     }
 }, {
     timestamps: true,
     versionKey: false,
-    JSON: { virtuals: true },
-    toObject: { virtuals: true }
+    toJSON: { 
+        virtuals: true,
+        getters: true
+    },
+    toObject: { 
+        virtuals: true,
+        getters: true
+    }
 });
 
 UserSchema.virtual('addresses', {

@@ -83,7 +83,6 @@ class AuthController {
                 token
             });
         } catch (error) {
-            console.log(error)
             await session.abortTransaction();
             return res.status(500).json({
                 status: 0,

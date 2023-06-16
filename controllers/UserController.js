@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
-const User = require('../models/User');
 const Joi = require('joi');
+const fs = require('fs');
+const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const config = require('../config/appconfig');
 
@@ -63,11 +64,25 @@ class UserController {
                 });
             }
 
-            await user.updateOne({
+            const data = {
                 firstname: req.body.firstname,
                 lastname: req.body.lastname,
                 mobileNumber: req.body.mobileNumber
-            }, { session });
+            };
+
+            if(req.file) {
+                data.avatar = req.file.filename;
+
+                if(user.avatar) {
+                    fs.unlink(user.avatar, (err) => {
+                        if(err) {
+                            console.log("There is not already exist this user's avatar.")
+                        }
+                    })
+                }
+            }
+
+            await user.updateOne(data, { session });
 
             await session.commitTransaction();
 
